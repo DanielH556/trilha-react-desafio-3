@@ -22,7 +22,7 @@ const Login = () => {
     const onSubmit = async (formData) => {
         try{
             const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.senha}`);
-            
+            console.log(data)
             if(data.length && data[0].id){
                 navigate('/feed') 
                 return
@@ -30,7 +30,7 @@ const Login = () => {
 
             alert('Usuário ou senha inválido')
         }catch(e){
-            //TODO: HOUVE UM ERRO
+            console.log(e)
         }
     };
 
